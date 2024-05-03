@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./style.css" rel="stylesheet">
+    <script src="./script.js"></script>
+    <title>WebBingo</title>
+</head>
+<body>
+    <h1>WebBingo</h1>
+    <button id="furu">ガラガラするっす</button>
+    <br>
+    <button id="search">検索</button>
+    <br>
+    <br>
+    <div class="box now">
+        <span id="now">
+            <br>
+        </span>
+    </div>
+    <br>
+    <br>
+    <!-- 数の履歴 -->
+    <div class="box ippai">
+        <span id="numbers"></span>
+        <br>
+    </div>
+    <br>
+    <div class="box ippai">
+        数の範囲(どっちも含む)
+        <br>
+        <input type="number" id="saisyou" value="1" class="num" min="0" max="100">～<input type="number" id="saidai" value="75" class="num" min="0" max="99">
+    </div>    
+</body>
+</html>

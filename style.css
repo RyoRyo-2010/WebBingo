@@ -1,0 +1,28 @@
+.box {
+    background: #f9ffa5;
+    border: 2px solid black;
+    overflow-wrap: break-word;
+}
+
+.now {
+    display: flex;
+}
+
+#now {
+    margin: 0 auto;
+    font-size: 40vw;
+}
+
+.ippai {
+    width:80vw;
+}
+
+.num{
+    width:30vw
+}
+
+#furu {
+    width:80vw;
+    display: grid;
+    /* place-items: center; */
+}
