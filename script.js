@@ -1,11 +1,5 @@
 var numberList = [];
 var useSpeech = false;
-const uttr = new SpeechSynthesisUtterance();
-uttr.lang = "en-US";
-
-const zyuu = ["","zyu","ni zyu","san zyu","yon zyu","go zyu","roku zyu","nana zyu","hachi zyu","ku zyu"];
-const iti = ["","ichi","ni","san","yon","go","roku","nana","hachi","kyu"];
-
 function furu() {
     const hanni = { min: Number(document.querySelector("#saisyou").value), max: Number(document.querySelector("#saidai").value) };
     if(hanni.max < hanni.min) {
@@ -23,9 +17,6 @@ function furu() {
     let ok = false;
     if (hanni.max - hanni.min + 1 == numberList.length) {
         const dasita = "もう番号はすべて出したっす";
-        uttr.text = "mo u ba nn go u wa su be te da shi ta su";
-        // 発言を再生 (発言キューに発言を追加)
-        speechSynthesis.speak(uttr);
         alert(dasita);
         let button = document.querySelector("#furu");
         button.disabled = true;
@@ -40,18 +31,6 @@ function furu() {
             numberList.push(rand);
             showNumbers();
             document.querySelector("#now").innerHTML = rand;
-            //しゃべる
-            if (useSpeech) {
-                //ローマ字を作る
-                let msg = "";
-                msg = zyuu[Math.floor(rand / 10)];
-                msg += " ";
-                msg += iti[rand % 10];
-                // 発言を作成
-                uttr.text = msg;
-                // 発言を再生 (発言キューに発言を追加)
-                speechSynthesis.speak(uttr);
-            }
         }
     }
 
@@ -61,8 +40,6 @@ function furu() {
 window.onload = (event) => {
     document.querySelector("#furu").addEventListener("click", furu);
     document.querySelector("#search").addEventListener("click",search);
-    //音声合成使える？
-    useSpeech = ('speechSynthesis' in window);
 };
 
 function showNumbers() {
@@ -73,16 +50,8 @@ function showNumbers() {
 function search() {
     let s = prompt("検索する数字を打ってくれっす");
     if(numberList.indexOf(Number(s)) != -1) {
-        // 発言を作成
-        uttr.text = "mi tsu ka ta su";
-        // 発言を再生 (発言キューに発言を追加)
-        speechSynthesis.speak(uttr);
         alert("見つかったっす！");
     }else{
-        // 発言を作成
-        uttr.text = "mi tsu ka ra na ka ta su";
-        // 発言を再生 (発言キューに発言を追加)
-        speechSynthesis.speak(uttr);
         alert("見つからなかったっす...");
     }
 }
